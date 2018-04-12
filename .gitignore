@@ -6,4 +6,4 @@ image/
 .ipynb_checkpoints/
 *.pyc
 temp/
-chncts/test.py
+chncts/test*
