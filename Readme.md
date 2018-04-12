@@ -8,20 +8,19 @@ This is a data science project aimed to take a look at the Chinese clinical tria
 
 Finally, I plan to create a dashboard for interactive exploration.
 
-This is a *doing-by-learning* project and I hope it to be the first step toward a data scientist career.
+This is a *doing-by-learning* project and I hope it to be some initial steps toward a data scientist career.
 
 # Progress update
 
 
 * 180227: Pilot data scraper. Inital commit.
-
-# Scripts
-
-* `scrape_chinese_cts.py` (Ongoing): a wrapped up scraper.
+* 180412: Re-org package `chncts`.
 
 # TODOs:
 
-* Wrap up the `scrape_chinese_cts.py`
+* Data purging: records from old trials (before 2015) tend to have bad quality. 
+* (opt) Set trial date filter in scraper.
+* Exploratory data analysis
 
 # Background on www.chinadrugtrials.org.cn
 

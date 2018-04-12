@@ -1,7 +1,9 @@
-Readme.ipynb
 DataScraping_pilot.ipynb
-DataScraping_pilot.html
+*.html
 Archive_data.ipynb
 data/
 image/
 .ipynb_checkpoints/
+*.pyc
+temp/
+chncts/test.py
