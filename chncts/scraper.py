@@ -282,17 +282,21 @@ def parse_eligibility(det, clinlst):
     maxstr = clinlst[clinlst.index(u"年龄")+2]
     m = re.search(u"(?P<min>\S+)岁", minstr)
     if m:
-        if re.match("[0-9]+$]", m.group("min")):
+        if re.match("[0-9]+", m.group("min")):
             det["eligibility"]["minimum_age"] = int(m.group("min"))
+        else:
+            det["eligibility"]["minimum_age"] = None
     else:
         det["eligibility"]["minimum_age"] = None
         
     m = re.search(u"(?P<max>\S+)岁", maxstr)
     if m:
-        if re.match("[0-9]+$", m.group("max")):
+        if re.match("[0-9]+", m.group("max")):
             det["eligibility"]["maximum_age"] = int(m.group("max"))
+        else:
+            det["eligibility"]["maximum_age"] = None
     else:
-        det["eligibility"]["minimum_age"] = None
+        det["eligibility"]["maximum_age"] = None
     
     # gender, healthy_volunteers
     det["eligibility"]["gender"] = clinlst[clinlst.index(u"性别")+1]
