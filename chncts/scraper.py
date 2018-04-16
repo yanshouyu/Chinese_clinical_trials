@@ -206,19 +206,35 @@ def parse_date_of_publicity(det, txtlst):
 
 def parse_condition(det, txtlst):
     det["condition"] = txtlst[txtlst.index(u"适应症：")+1]
+    # caution: some old trials have empty fields
+    if det["condition"] == u"试验通俗题目：":
+        det["condition"] = None
 
 def parse_titles(det, txtlst):
     "assign brief_title and official_title to trial detail JSON"
     det["brief_title"] = txtlst[txtlst.index(u"试验通俗题目：")+1]
     det["official_title"] = txtlst[txtlst.index(u"试验专业题目：")+1]
+    # caution: some old trials have empty fields
+    if det["brief_title"] == u"试验专业题目：":
+        det["brief_title"] = None
+    if det["official_title"] == u"试验方案编号：":
+        det["official_title"] = None
 
 def parse_org_id(det, txtlst):
     det["org_study_id"] = txtlst[txtlst.index(u"试验方案编号：")+1]
+    # caution: some old trials have empty fields
+    if det["org_study_id"] == u"临床申请受理号：":
+        det["org_study_id"] = None
 
 def parse_drugs(det, txtlst):
     "assign (drugs_name, drugs_type) to trial detail JSON"
     det["drugs_name"] = txtlst[txtlst.index(u"药物名称：")+1]
     det["drugs_type"] = txtlst[txtlst.index(u"药物类型：")+1]
+    # caution: some old trials has empty drug name and type
+    if det["drugs_name"] == u"药物类型：":
+        det["drugs_name"] = None
+    if det["drugs_type"] == u"二、申办者信息":
+        det["drugs_type"] = None
 
 def parse_sponsors(det, txtlst):
     "assign a list of sponsors from 二、申办者信息"
